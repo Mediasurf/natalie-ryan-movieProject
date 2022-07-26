@@ -1,3 +1,6 @@
 export default function Loading(props) {
-    return `<h1>Loading...</h1>`;
+    return `
+
+
+<h1>Boring...</h1>`;
 }
