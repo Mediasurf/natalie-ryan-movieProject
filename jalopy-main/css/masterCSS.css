@@ -20,7 +20,7 @@
 
 #movieCard:hover {
     transform: translate(0, -2px);
-    box-shadow: 10px 10px 25px 0 black;
+    box-shadow: 0 0 20px 0 black;
     transition: 50ms ease;
 }
 
@@ -31,4 +31,6 @@
 }
 .card {
     display: inline-block;
+    width: 25vw;
+    overflow: scroll;
 }

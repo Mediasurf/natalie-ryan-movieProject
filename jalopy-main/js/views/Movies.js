@@ -41,7 +41,6 @@ function addExistingMovies(){
                     Director: ${D} <hr>
                     Rating: ${R} <hr>
                     Genre: ${G} <hr>
-                    <button>delete</button>
                 </div>
             `
     }
