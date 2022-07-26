@@ -22,7 +22,6 @@ export default function Movies(props) {
     `;
 }
 
-
 function addExistingMovies(){
     console.log(data)
     //to access local array, replace data with quotesL
@@ -42,6 +41,7 @@ function addExistingMovies(){
                     Director: ${D} <hr>
                     Rating: ${R} <hr>
                     Genre: ${G} <hr>
+                    <button>delete</button>
                 </div>
             `
     }
