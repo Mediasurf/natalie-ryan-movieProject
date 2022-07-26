@@ -8,6 +8,7 @@ import Register from "./views/Register.js"
 import {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvents} from "./views/User.js";
 import Logout, {LogoutEvents} from "./views/Logout.js";
+import editMoviesHTMLFunction, {MovieEditsJS} from "./views/EditMovies";
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -76,6 +77,20 @@ export default function router(URI) {
             state: {},
             uri: location.pathname,
             title: 'Loading...',
+        },
+        '/editMovies': {
+            returnView: editMoviesHTMLFunction,
+            state: {
+                movies: {
+                    url: "https://rambunctious-cumbersome-silence.glitch.me",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            },
+            uri: '/editMovies',
+            title: 'Edit Movies',
+            viewEvent: MovieEditsJS,
         },
     };
 
