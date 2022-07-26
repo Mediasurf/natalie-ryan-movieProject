@@ -12,6 +12,7 @@ export default function Home(props) {
             <div>
                 <p>
                     This is the home page text.
+                    <a href="https://rambunctious-cumbersome-silence.glitch.me/movies" target="_blank" >Open in new tab to view movies</a>
                 </p>    
             </div>
         </main>
