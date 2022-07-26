@@ -23,3 +23,13 @@
     box-shadow: 10px 10px 25px 0 black;
     transition: 50ms ease;
 }
+
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.card {
+    display: inline-block;
+}

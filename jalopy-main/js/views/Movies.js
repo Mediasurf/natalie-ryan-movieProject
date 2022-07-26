@@ -16,7 +16,8 @@ export default function Movies(props) {
                     <a href="https://rambunctious-cumbersome-silence.glitch.me/movies" target="_blank" >Open in new tab to view movie database</a>
                 </p>
             </div>
-            <div id="moviesHere"></div>
+            <div id="moviesHere" class="scrolling-wrapper"></div>
+
         </main>
     `;
 }
@@ -31,6 +32,8 @@ function addExistingMovies(){
         let T = data[i].title;
         let D = data[i].director;
         let R = data[i].rating
+        let G = data[i].genre
+
 
         placeMoviesHere.innerHTML +=
             `
@@ -38,6 +41,7 @@ function addExistingMovies(){
                     Title: ${T} <hr>
                     Director: ${D} <hr>
                     Rating: ${R} <hr>
+                    Genre: ${G} <hr>
                 </div>
             `
     }
