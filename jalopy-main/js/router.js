@@ -1,4 +1,4 @@
-import Home, {HomeEvents} from "./views/Home.js";
+import Movies, {MovieEvents} from "./views/Movies.js";
 import About, {AboutEvents} from "./views/About.js";
 import Error404 from "./views/Error404.js";
 import Loading from "./views/Loading.js";
@@ -17,11 +17,18 @@ import Logout, {LogoutEvents} from "./views/Logout.js";
 export default function router(URI) {
     const routes = {
         '/': {
-            returnView: Home,
-            state: {},
+            returnView: Movies,
+            state: {
+                movies: {
+                    url: 'https://rambunctious-cumbersome-silence.glitch.me/movies',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            },
             uri: '/',
-            title: 'Home',
-            viewEvent: HomeEvents
+            title: 'Insert Movies',
+            viewEvent: MovieEvents
         },
         '/logout': {
             returnView: Logout,
@@ -69,7 +76,7 @@ export default function router(URI) {
             state: {},
             uri: location.pathname,
             title: 'Loading...',
-        }
+        },
     };
 
     // if we see a URI with index.html then interpret that as a route for /
