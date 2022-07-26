@@ -1,0 +1,25 @@
+.jalopy-nav {
+    margin-right: 1em;
+}
+
+
+#app {
+   color: #252525;
+}
+
+
+#movieCard {
+    border: 3px solid lightgray;
+    border-radius: 5px;
+    /*overflow-y: scroll;*/
+    /*width: 50%;*/
+    /*height: 10px;*/
+    background-color: white;
+    margin: 5em;
+}
+
+#movieCard:hover {
+    transform: translate(0, -2px);
+    box-shadow: 10px 10px 25px 0 black;
+    transition: 50ms ease;
+}
