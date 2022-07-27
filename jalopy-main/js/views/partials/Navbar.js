@@ -5,14 +5,20 @@ export default function Navbar(props) {
 
     // everyone can see home
     let html = `
-        <nav>
-            <a class="jalopy-nav" href="/" data-link>Home</a>`;
-
-    // everyone can see about
-    html = html + `<a class="jalopy-nav" href="/about" data-link>About</a>`;
-
-    html = html + `<a class="jalopy-nav" href="/editMovies" data-link>Edit Movies</a>`;
-
+        <nav class="navbar">
+            <ul class="navbar-nav">
+                <li>
+                    <a class="jalopy-nav" href="/" data-link>Home</a>
+                </li>
+            
+                <li>
+                    <a class="jalopy-nav" href="/about" data-link>About</a>
+                   </li>
+                <li>
+                    <a class="jalopy-nav" href="/editMovies" data-link>Edit Movies</a>
+                </li>
+            </ul>
+        </nav>`;
 
 
 
@@ -26,6 +32,6 @@ export default function Navbar(props) {
     //     <a class="jalopy-nav" href="/register" data-link>Register</a>`;
     // }
 
-    html = html + `</nav>`;
+    // html = html + `</nav>`;
     return html;
 }
