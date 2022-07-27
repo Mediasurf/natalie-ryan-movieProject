@@ -6,7 +6,7 @@
 .jalopy-nav {
     margin-right: 1em;
 }
-#movieCard {
+.movieCard {
     border: 3px solid lightgray;
     border-radius: 10px;
     /*overflow-y: scroll;*/
@@ -15,7 +15,7 @@
     background-color: white;
     margin: 5em;
 }
-#movieCard:hover {
+.movieCard:hover {
     transform: translate(0, -20px);
     box-shadow: 0 0 20px 0 aqua;
     border-radius: 10px;
@@ -71,5 +71,9 @@ body {
     /*background: #000000;*/
 }
 #movieH1 {
+    color: white;
+}
+
+#h1E {
     color: white;
 }
