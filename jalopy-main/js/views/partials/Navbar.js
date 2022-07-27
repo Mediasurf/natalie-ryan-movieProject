@@ -11,7 +11,7 @@ export default function Navbar(props) {
     // everyone can see about
     html = html + `<a class="jalopy-nav" href="/about" data-link>About</a>`;
 
-    html = html + `<a class="jalopy-nav" href="/movie edit" data-link>Edit Movies</a>`;
+    html = html + `<a class="jalopy-nav" href="/editMovies" data-link>Edit Movies</a>`;
 
 
 

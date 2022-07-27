@@ -1,28 +1,54 @@
+:root {
+    --clr-neon: hsl(317 100% 54%);
+    --clr-bg: hsl(323 21% 16%);
+}
+
 .jalopy-nav {
     margin-right: 1em;
 }
-
-
-#app {
-   color: #252525;
-}
-
-
 #movieCard {
     border: 3px solid lightgray;
-    border-radius: 5px;
+    border-radius: 10px;
     /*overflow-y: scroll;*/
     /*width: 50%;*/
     /*height: 10px;*/
     background-color: white;
     margin: 5em;
 }
-
 #movieCard:hover {
-    transform: translate(0, -2px);
-    box-shadow: 0 0 20px 0 black;
+    transform: translate(0, -20px);
+    box-shadow: 0 0 20px 0 aqua;
+    border-radius: 10px;
     transition: 50ms ease;
+
+    /*content: "";*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*box-shadow: 0 0 2em 0.5em var(--clr-neon);*/
+    /*opacity: 0;*/
+    /*background-color: var(--clr-neon);*/
+    /*z-index: -1;*/
+    /*transition: opacity 100ms linear;*/
 }
+
+/*#movieCard::before:hover {*/
+/*    pointer-events: none;*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    background: var(--clr-neon);*/
+/*    top: 120%;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+
+/*    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);*/
+/*    filter: blur(1em);*/
+/*    opacity: 0.7;*/
+/*}*/
+
 
 .scrolling-wrapper {
     overflow-x: scroll;
@@ -32,5 +58,18 @@
 .card {
     display: inline-block;
     width: 25vw;
+    /*width: min-content;*/
     overflow: scroll;
+    box-shadow: 0 0 10px 0 black;
+}
+html {
+    height: 100vh;
+}
+body {
+    height: 100%;
+    background: #252525;
+    /*background: #000000;*/
+}
+#movieH1 {
+    color: white;
 }

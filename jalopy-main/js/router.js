@@ -8,7 +8,8 @@ import Register from "./views/Register.js"
 import {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvents} from "./views/User.js";
 import Logout, {LogoutEvents} from "./views/Logout.js";
-import editMoviesHTMLFunction, {MovieEditsJS} from "./views/EditMovies";
+import editMoviesHTML, {MovieEditsJS} from "./views/EditMovies.js";
+// import editMoviesHTML from "./views/EditMovies";
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -79,10 +80,10 @@ export default function router(URI) {
             title: 'Loading...',
         },
         '/editMovies': {
-            returnView: editMoviesHTMLFunction,
+            returnView: editMoviesHTML,
             state: {
                 movies: {
-                    url: "https://rambunctious-cumbersome-silence.glitch.me",
+                    url: 'https://rambunctious-cumbersome-silence.glitch.me/movies',
                     headers: {
                         'Content-Type': 'application/json'
                     }
