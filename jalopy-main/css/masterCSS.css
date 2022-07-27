@@ -67,8 +67,14 @@ html {
 }
 body {
     height: 100%;
-    background: #252525;
-    /*background: #000000;*/
+    background-image: url("../assets/3840x2160-px-sunset-waves-1264277-wallhere.com.jpg");
+    background-repeat: no-repeat;
+    min-height: 90%;
+    display: flex;
+    justify-content: center;
+    background-attachment: fixed;
+    background-size: 225vh;
+    background-position: top right;
 }
 #movieH1 {
     color: white;
