@@ -8,7 +8,7 @@ export default function Movies(props) {
     data = props.movies
     return `
         <header>
-            <h1>Movies</h1>
+            <h1 id="movieH1">Movies</h1>
         </header>
         <main>
             <div>
@@ -17,7 +17,7 @@ export default function Movies(props) {
                 </p>
             </div>
             <div id="moviesHere" class="scrolling-wrapper"></div>
-
+            <div id="moviesHere2" class="scrolling-wrapper"></div>
         </main>
     `;
 }
@@ -26,14 +26,13 @@ function addExistingMovies(){
     console.log(data)
     //to access local array, replace data with quotesL
     let placeMoviesHere = document.querySelector("#moviesHere");
+    let placeMoviesHere2 = document.querySelector("#moviesHere2")
     // quotesL = data
     for(let i =0;i < data.length;i++){
         let T = data[i].title;
         let D = data[i].director;
         let R = data[i].rating
         let G = data[i].genre
-
-
         placeMoviesHere.innerHTML +=
             `
                 <div id="movieCard" class="card">
@@ -43,6 +42,16 @@ function addExistingMovies(){
                     Genre: ${G} <hr>
                 </div>
             `
+        placeMoviesHere2.innerHTML +=
+            `
+             <div id="movieCard" class="card">
+                    Title: ${T} <hr>
+                    Director: ${D} <hr>
+                    Rating: ${R} <hr>
+                    Genre: ${G} <hr>
+                </div>
+            `
+
     }
 }
 
