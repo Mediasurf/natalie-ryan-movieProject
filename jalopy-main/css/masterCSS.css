@@ -19,7 +19,7 @@
     transform: translate(0, -20px);
     box-shadow: 0 0 20px 0 aqua;
     border-radius: 10px;
-    transition: 50ms ease;
+    transition: 1s ease;
 
     /*content: "";*/
     /*position: absolute;*/
@@ -82,4 +82,7 @@ body {
 
 #h1E {
     color: white;
+}
+.text-input {
+    min-width: min-content;
 }
