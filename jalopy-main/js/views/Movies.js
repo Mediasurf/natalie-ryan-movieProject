@@ -11,11 +11,6 @@ export default function Movies(props) {
             <h1 id="movieH1">Movies</h1>
         </header>
         <main>
-            <div>
-                <p>
-                    <a href="https://rambunctious-cumbersome-silence.glitch.me/movies" target="_blank" >Open in new tab to view movie database</a>
-                </p>
-            </div>
             <div id="moviesHere" class="scrolling-wrapper"></div>
             <div id="moviesHere2" class="scrolling-wrapper"></div>
         </main>
@@ -35,23 +30,22 @@ function addExistingMovies(){
         let G = data[i].genre
         placeMoviesHere.innerHTML +=
             `
-                <div id="movieCard" class="card">
-                    Title: ${T} <hr>
-                    Director: ${D} <hr>
-                    Rating: ${R} <hr>
-                    Genre: ${G} <hr>
-                </div>
+            <div class="card movieCard">
+                Title: ${T} <hr>
+                Director: ${D} <hr>
+                Rating: ${R} <hr>
+                Genre: ${G} <hr>
+            </div>
             `
         placeMoviesHere2.innerHTML +=
             `
-             <div id="movieCard" class="card">
-                    Title: ${T} <hr>
-                    Director: ${D} <hr>
-                    Rating: ${R} <hr>
-                    Genre: ${G} <hr>
-                </div>
+             <div class="card movieCard">
+                Title: ${T} <hr>
+                Director: ${D} <hr>
+                Rating: ${R} <hr>
+                Genre: ${G} <hr>
+             </div>
             `
-
     }
 }
 
