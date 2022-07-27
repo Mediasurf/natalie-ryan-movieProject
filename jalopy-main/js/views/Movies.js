@@ -30,6 +30,7 @@ function addExistingMovies(){
         let G = data[i].genre
         placeMoviesHere.innerHTML +=
             `
+            
             <div class="card movieCard">
                 Title: ${T} <hr>
                 Director: ${D} <hr>
