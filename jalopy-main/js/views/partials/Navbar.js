@@ -20,8 +20,6 @@ export default function Navbar(props) {
             </ul>
         </nav>`;
 
-
-
     // only logged in can see user info and logout
     // if(loggedIn) {
     //     html = html + `<a class="jalopy-nav" href="/users" data-link>User Info</a>
