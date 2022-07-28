@@ -7,7 +7,7 @@ export default function editMoviesHTML (props) {
     ///this is the form to input new movies
     return `
 <form class="container">
-    <h1 id="h1E">Add New Movies</h1>
+    <h1 id="h1E">Admin Page</h1>
     <a href="https://rambunctious-cumbersome-silence.glitch.me/movies" target="_blank" >Open in new tab to view movie database</a>
 
     <form>
@@ -56,7 +56,7 @@ function addExistingMoviesEditPage(){
                     Plot:  
                    <input id="plotInput" class="text-input" value = "${Plot}">
                     <hr>
-                    <button id="saveBtn" class="saveBtn btn bg-secondary">Save</button>
+                    <button id="saveBtn" class="saveBtn btn bg-secondary" data-id="${data[i].id}">Save</button>
                     <button id="deleteBtn" class="dltBtn btn bg-secondary" data-id="${data[i].id}">Delete</button>
                 </div>
             `
@@ -71,26 +71,81 @@ export function MovieEditsJS() {
     const addButton = document.querySelector("#insert-btn");
     addButton.addEventListener("click", addNewMovie);
     addExistingMoviesEditPage();
+    //end add movies here
 
-    // this is for the edit cards button
-    const movieCardSaveBtns = document.querySelectorAll(".saveBtn")
-    for(let i=0;i<movieCardSaveBtns.length;i++){
+
+    //begin edit movies here
+    const movieCardSaveBtns = document.querySelectorAll(".saveBtn");
+    for(let i=0;i<movieCardSaveBtns.length;i++) {
+        // this is for the edit cards button
         movieCardSaveBtns[i].addEventListener("click", function(){
-            alert("edited")
+            alert("edited");
+
+            //need to grab the value for the input fields, only on the card I am selecting
+            //turn those values into constants, then put those constants into one constant to post to db
+            //post that constant into that card's id in the db
+
             // code here: when save btn is clicked, post the new data to the ID
             // get value of inputs into a var
             // need to reference specific card id here...
-            const title = titleInput[i].value;
-            console.log(title);
+
+            let movieCards = document.querySelector("#moviesHere");
+            for(let j=0;j<movieCards;j++) {
+                let titleInput = document.querySelector("#titleInput");
+                let titleEdit = titleInput[j].value;
+
+                let directorInput = document.querySelector("#directorInput");
+                let directorEdit = directorInput[j].value;
+
+                let ratingInput = document.querySelector("#ratingInput");
+                let ratingEdit = ratingInput[j].value;
+
+                let genreInput = document.querySelector("#genreInput");
+                let genreEdit = genreInput[j].value;
+
+                let plotInput = document.querySelector("#plotInput");
+                let plotEdit = plotInput[j].value;
+            }
+            //how do I extract the values of titleEdit, etc. to  here??
+
             const editedM = {
-                            title: titleEdit,
-                            director: directorEdit,
-                            rating: ratingEdit,
-                            genre: genreEdit,
-                            plot: plotEdit
-                    };
-        })
+                title: titleEdit,
+                director: directorEdit,
+                rating: ratingEdit,
+                genre: genreEdit,
+                plot: plotEdit
+            }
+            console.log("Edited movie is ready to be inserted");
+            const requestOptions = {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(editedM)
+            }
+            const dataID = movieCardSaveBtns[i].getAttribute('data-id');
+            fetch(`https://rambunctious-cumbersome-silence.glitch.me/movies/${dataID}`, requestOptions)
+                .then(function (response) {
+                    if (!response.ok) {
+                        console.log("add movie error: " + response.status);
+                    } else {
+                        console.log("add movie ok");
+                        //below specifies which page to return to when movie is added
+                        createView('/editMovies');
+                    }
+                });
+        });
     }
+
+
+//delete old card from id then
+//add new card to id
+
+
+
+
+
+
 
 
     ///delete here
