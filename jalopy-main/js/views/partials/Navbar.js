@@ -11,9 +11,9 @@ export default function Navbar(props) {
                     <a class="jalopy-nav" href="/" data-link>Home</a>
                 </li>
             
-                <li>
-                    <a class="jalopy-nav" href="/about" data-link>About</a>
-                   </li>
+<!--                <li>-->
+<!--                    <a class="jalopy-nav" href="/about" data-link>About</a>-->
+<!--                </li>-->
                 <li>
                     <a class="jalopy-nav" href="/editMovies" data-link>Edit Movies</a>
                 </li>

@@ -7,6 +7,8 @@ export default function editMoviesHTML (props) {
     ///this is the form to input new movies
     return `
 <form class="container">
+<div class="clouds"></div>
+
     <h1 id="h1E">Admin Page</h1>
     <a href="https://rambunctious-cumbersome-silence.glitch.me/movies" target="_blank" >Open in new tab to view movie database</a>
 

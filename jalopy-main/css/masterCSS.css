@@ -58,6 +58,11 @@ h1 {
 /*    filter: blur(1em);*/
 /*    opacity: 0.7;*/
 /*}*/
+/*for navbar placement*/
+.navbar {
+    align-content: flex-start;
+    margin-left: 1px;
+}
 
 .navbar-nav {
     display: flex;
@@ -68,6 +73,11 @@ h1 {
     font-family: "BM Hanna Air";
     font-weight: bolder;
     font-size: xxx-large;
+    border-radius: 5px;
+    border-color: blue;
+    border-width: 50px;
+
+
 }
 .scrolling-wrapper {
     overflow-x: scroll;
@@ -146,5 +156,64 @@ nav ul li a:hover {
 }
 .text-input {
     min-width: min-content;
+}
+
+body.clickEffect{
+    position:fixed;
+    box-sizing:border-box;
+    border-style:solid;
+    /*border-color:#FFFFFF;*/
+    border-color: lightblue transparent;
+    border-radius:50%;
+    animation:clickEffect 0.4s ease-out;
+    z-index:99999;
+}
+@keyframes clickEffect{
+    0%{
+        opacity:1;
+        width:1em; height:1em;
+        margin:-1em;
+        border-width:0.5em;
+    }
+    100%{
+        opacity:0.2;
+        width:4em; height:4em;
+        margin:-1em;
+        border-width:0.03em;
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}
+.show {
+    display: block;
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+
+.clouds {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    height:62em;
+    display:block;
+}
+
+.clouds{
+    background:transparent url(/jalopy-main/assets/clouds.png) repeat top center;
+    z-index:-1;
+    opacity: 0.5;
+    animation:move-clouds-back 200s linear infinite;
 }
 
