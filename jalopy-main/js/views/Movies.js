@@ -8,7 +8,7 @@ export default function Movies(props) {
     data = props.movies
     return `
         <header>
-            <h1 id="movieH1">Movies</h1>
+            <h1 id="movieH1">Media Surf</h1>
         </header>
         <main>
             <div id="moviesHere" class="scrolling-wrapper"></div>
@@ -32,7 +32,11 @@ function addExistingMovies(){
             `
             
             <div class="card movieCard">
-                Title: ${T} <hr>
+// <!--                <article>${T}</article> -->
+<!--                <hr style="height: 5px;-->
+<!--                          border: 1px;-->
+<!--                          box-shadow: inset 0 9px 9px -3px rgba(11, 99, 184, 0.8);">-->
+                Title: ${T} <hr>          
                 Director: ${D} <hr>
                 Rating: ${R} <hr>
                 Genre: ${G} <hr>
@@ -49,15 +53,12 @@ function addExistingMovies(){
             `
     }
 }
-
-
-
 export function MovieEvents() {
     // TODO: use an enum for message type
     // const authority = getUserRole();
     const user = getUser();
     if(!user) {
-        showNotification("Welcome visitor", "secondary");
+        showNotification("Welcome Friends", "secondary");
     } else {
         showNotification("Welcome " + user.userName, "info");
     }
