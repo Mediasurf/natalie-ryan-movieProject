@@ -29,7 +29,7 @@ export default function editMoviesHTML (props) {
 
 //function here top add existing movies
 function addExistingMoviesEditPage(){
-    console.log(data)
+    // console.log(data)
     let placeMoviesHere = document.querySelector("#moviesHere");
     for(let i =0;i < data.length;i++){
         let Title = data[i].title;
@@ -42,19 +42,19 @@ function addExistingMoviesEditPage(){
             `
                 <div class="card movieCard">
                     Title:
-                   <input id="titleInput" class="text-input" value = "${Title}">
+                   <input class="text-input titleInput" value = "${Title}">
                      <hr>
                     Director:  
-                   <input id="directorInput" class="text-input" value = "${Director}">
+                   <input class="text-input directorInput" value = "${Director}">
                      <hr>
                     Rating:  
-                   <input id="ratingInput" class="text-input" value = "${Rating}">
+                   <input class="text-input ratingInput" value = "${Rating}">
                      <hr>
                     Genre:  
-                   <input id="genreInput" class="text-input" value = "${Genre}">
+                   <input class="text-input genreInput" value = "${Genre}">
                      <hr>
                     Plot:  
-                   <input id="plotInput" class="text-input" value = "${Plot}">
+                   <input class="text-input plotInput" value = "${Plot}">
                     <hr>
                     <button id="saveBtn" class="saveBtn btn bg-secondary" data-id="${data[i].id}">Save</button>
                     <button id="deleteBtn" class="dltBtn btn bg-secondary" data-id="${data[i].id}">Delete</button>
@@ -62,10 +62,18 @@ function addExistingMoviesEditPage(){
             `
     }
 }
+//the save button data-id creates an id specific to the card being created, which then exists in the database
 
 
 //this is the JS portion
 export function MovieEditsJS() {
+    let editedM = {
+        title: "",
+        director: "",
+        rating: "",
+        genre: "",
+        plot: ""
+    }
 
     //begin add movies here
     const addButton = document.querySelector("#insert-btn");
@@ -89,40 +97,35 @@ export function MovieEditsJS() {
             // get value of inputs into a var
             // need to reference specific card id here...
 
-            let movieCards = document.querySelector("#moviesHere");
-            for(let j=0;j<movieCards;j++) {
-                let titleInput = document.querySelector("#titleInput");
-                let titleEdit = titleInput[j].value;
+            let movieCards = document.querySelectorAll(".movieCard");
+            for(let j=0;j<movieCards.length;j++) {
+                let titleInput = document.querySelectorAll(".titleInput");
+                editedM.title = titleInput[j].value;
 
-                let directorInput = document.querySelector("#directorInput");
-                let directorEdit = directorInput[j].value;
+                let directorInput = document.querySelectorAll(".directorInput");
+                editedM.director = directorInput[j].value;
 
-                let ratingInput = document.querySelector("#ratingInput");
-                let ratingEdit = ratingInput[j].value;
+                let ratingInput = document.querySelectorAll(".ratingInput");
+                editedM.rating = ratingInput[j].value;
 
-                let genreInput = document.querySelector("#genreInput");
-                let genreEdit = genreInput[j].value;
+                let genreInput = document.querySelectorAll(".genreInput");
+                editedM.genre = genreInput[j].value;
 
-                let plotInput = document.querySelector("#plotInput");
-                let plotEdit = plotInput[j].value;
+                let plotInput = document.querySelectorAll(".plotInput");
+                editedM.plot = plotInput[j].value;
             }
             //how do I extract the values of titleEdit, etc. to  here??
 
-            const editedM = {
-                title: titleEdit,
-                director: directorEdit,
-                rating: ratingEdit,
-                genre: genreEdit,
-                plot: plotEdit
-            }
+
             console.log("Edited movie is ready to be inserted");
             const requestOptions = {
-                method: "PUT",
+                method: "PATCH",
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(editedM)
             }
+            //the [i] below references whatever card I am on, to modify
             const dataID = movieCardSaveBtns[i].getAttribute('data-id');
             fetch(`https://rambunctious-cumbersome-silence.glitch.me/movies/${dataID}`, requestOptions)
                 .then(function (response) {
