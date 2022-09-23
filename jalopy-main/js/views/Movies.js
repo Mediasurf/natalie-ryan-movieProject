@@ -22,6 +22,7 @@ function addExistingMovies(){
     //to access local array, replace data with quotesL
     let placeMoviesHere = document.querySelector("#moviesHere");
     let placeMoviesHere2 = document.querySelector("#moviesHere2")
+
     // quotesL = data
     for(let i =0;i < data.length;i++){
         let T = data[i].title;

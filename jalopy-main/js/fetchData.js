@@ -6,7 +6,8 @@
  * @param request
  * @returns {Promise<{}>}
  */
-const BASE_URI = `${BACKEND_HOST}`;
+// const BASE_URI = `${BACKEND_HOST}`;
+const baseURI = "http:localhost:9001";
 
 export default function fetchData(state, request) {
     const promises = [];

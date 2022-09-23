@@ -1,6 +1,5 @@
 import createView from "../createView.js"
 
-
 let data
 export default function editMoviesHTML (props) {
     data = props.movies
@@ -127,8 +126,9 @@ export function MovieEditsJS() {
             }
             //the [i] below references whatever card I am on, to modify
             const dataID = movieCardSaveBtns[i].getAttribute('data-id');
-            fetch(`https://rambunctious-cumbersome-silence.glitch.me/movies/${dataID}`, requestOptions)
-                .then(function (response) {
+            // fetch(`https://rambunctious-cumbersome-silence.glitch.me/movies/${dataID}`, requestOptions)
+            fetch(`https://localhost:9001/api/movies${dataID}`, requestOptions)
+        .then(function (response) {
                     if (!response.ok) {
                         console.log("add movie error: " + response.status);
                     } else {
@@ -162,7 +162,7 @@ export function MovieEditsJS() {
                 method: "DELETE"
             }
             const dataID = movieCardDltBtns[i].getAttribute('data-id');
-            fetch(`https://rambunctious-cumbersome-silence.glitch.me/movies/${dataID}`, requestOptions)
+            fetch(`https://localhost:9001/api/movies/${dataID}`, requestOptions)
                 .then(function (response) {
                     if (!response.ok) {
                         console.log("delete movie error: " + response.status);
@@ -216,7 +216,7 @@ export function MovieEditsJS() {
             },
             body: JSON.stringify(newME)
         }
-        fetch('https://rambunctious-cumbersome-silence.glitch.me/movies', requestOptions)
+        fetch(`https://localhost:9001/api/movies`, requestOptions)
             .then(function (response) {
                 if (!response.ok) {
                     console.log("add movie error: " + response.status);
